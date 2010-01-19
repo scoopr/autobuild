@@ -38,7 +38,9 @@ int main(int argc, char **argv)
     if(argc <= 1) { 
         std::cerr << "Usage: " << argv[0] << " [options] cmd" << std::endl;
         std::cerr << "    -d   Directory to watch. Default: " << conf.directory << std::endl;
+#ifdef __APPLE__
         std::cerr << "    -l   Latency. Default: " << conf.latency << std::endl;
+#endif
         std::cerr << "    -i   Ignore duration. Default: " << conf.ignore << std::endl;
         return EXIT_FAILURE;
     }
@@ -60,7 +62,9 @@ int main(int argc, char **argv)
         case CONF_IGN: conf.ignore  = toDouble(arg); type = CONF_NONE; break;
         default:
             if(arg == "-d") type = CONF_DIR;
+#ifdef __APPLE__
             else if(arg == "-l") type = CONF_LAT;
+#endif
             else if(arg == "-i") type = CONF_IGN;
             else {
                 conf.command = arg;
