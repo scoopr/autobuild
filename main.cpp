@@ -36,7 +36,7 @@ int main(int argc, char **argv)
 
 
     if(argc <= 1) { 
-        std::cerr << "Usage: " << argv[0] << " {cmd}" << std::endl;
+        std::cerr << "Usage: " << argv[0] << " [options] cmd" << std::endl;
         std::cerr << "    -d   Directory to watch. Default: " << conf.directory << std::endl;
         std::cerr << "    -l   Latency. Default: " << conf.latency << std::endl;
         std::cerr << "    -i   Ignore duration. Default: " << conf.ignore << std::endl;
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
         switch(type) {
         case CONF_DIR: conf.directory = arg; type = CONF_NONE; break; 
         case CONF_CMD: 
-            conf.command+=" ";
+            conf.command += " ";
             conf.command += arg;  
             break; 
         case CONF_LAT: conf.latency = toDouble(arg); type = CONF_NONE; break;
@@ -67,6 +67,10 @@ int main(int argc, char **argv)
                 type = CONF_CMD;
             }
         }
+    }
+
+    if(conf.command.size() == 0) {
+        std::cerr << "Warning: no command to run?" << std::endl;
     }
 
 

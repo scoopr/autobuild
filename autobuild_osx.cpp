@@ -1,3 +1,5 @@
+#ifdef __APPLE__
+
 #include "autobuild.h"
 #include <CoreServices/CoreServices.h>
 #include <iostream>
@@ -92,3 +94,4 @@ void Autobuild::run() {
     CFRunLoopRun();    
 }
 
+#endif
