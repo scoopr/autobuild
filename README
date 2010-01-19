@@ -1,0 +1,10 @@
+
+  autobuild  -  dead simple automation
+
+  Triggers arbitary shell commands on filesystem events.
+
+  For example, automatically run test-suite
+  $ autobuild make check
+
+  Or build a website 
+  $ autobuild 'cat header.html content.html footer.html > index.html'
