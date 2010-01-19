@@ -50,7 +50,7 @@ void fseventerCallback(
 Autobuild::Autobuild(const AutobuildConfiguration& conf) : mPimpl(new Autobuild::Impl) {
     
     
-    CFStringRef path = CFStringCreateWithCString(NULL, conf.directory, kCFStringEncodingUTF8 );
+    CFStringRef path = CFStringCreateWithCString(NULL, conf.directory.c_str(), kCFStringEncodingUTF8 );
     CFArrayRef pathsToWatch = CFArrayCreate(NULL, (const void **)&path, 1, NULL);
 
     FSEventStreamContext context;
@@ -60,7 +60,7 @@ Autobuild::Autobuild(const AutobuildConfiguration& conf) : mPimpl(new Autobuild:
 
     mPimpl->ignore = conf.ignore;
     mPimpl->last = 0;
-    mPimpl->command = conf.command;
+    mPimpl->command = conf.command.c_str();
 
     mPimpl->stream = FSEventStreamCreate(NULL,
        &fseventerCallback,
