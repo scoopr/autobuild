@@ -43,6 +43,7 @@ void Autobuild::run() {
            if( now - mPimpl->last < mPimpl->conf->ignore ) {
                // ignore ..
            } else {
+               std::cout << "[autobuild] " << mPimpl->conf->command << std::endl; 
                system(mPimpl->conf->command.c_str());
                mPimpl->last = GetTickCount() / 1000.0;
            }
