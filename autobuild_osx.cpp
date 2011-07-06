@@ -22,11 +22,11 @@ void fseventerCallback(
     const FSEventStreamEventFlags eventFlags[],
     const FSEventStreamEventId eventIds[])
 {
-    streamRef = streamRef; // unused
-    numEvents = numEvents; // unused
-    eventPaths = eventPaths; // unused
-    eventFlags = eventFlags; // unused
-    eventIds = eventIds; // unused
+    (void)streamRef; // unused
+    (void)numEvents; // unused
+    (void)eventPaths; // unused
+    (void)eventFlags; // unused
+    (void)eventIds; // unused
 
     Autobuild::Impl *mPimpl = static_cast<Autobuild::Impl*>(clientCallBackInfo);
 
