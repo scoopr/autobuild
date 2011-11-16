@@ -23,7 +23,7 @@ Autobuild::Autobuild(const AutobuildConfiguration& conf) : mPimpl(new Autobuild:
                          FILE_NOTIFY_CHANGE_LAST_WRITE |
                          FILE_NOTIFY_CHANGE_SECURITY;
 
-    mPimpl->dwChangeHandle = FindFirstChangeNotification( 
+    mPimpl->dwChangeHandle = FindFirstChangeNotificationA( 
        conf.directory.c_str(),
        TRUE,          // watch subtree 
        notifyFilter); 
