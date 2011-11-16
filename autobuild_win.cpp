@@ -3,6 +3,8 @@
 #include "autobuild.h"
 #include <windows.h>
 
+#include <iostream>
+
 class Autobuild::Impl {
 public:    
     HANDLE dwChangeHandle;
